@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/02.led -->
+<html lang="en" style="--docsify_dark_mode_bg:white; --docsify_dark_mode_btn:#34495e; --text_color:var(--theme-color);"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>2. 点亮LED灯</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="keywords" content="it项目网">
+  <meta name="description" content="简单、有趣、好玩的编程项目分享学习网站。包含Python、C、C++、C#、Java、Go、JS等。新手、入门、进阶项目这里全有，配有专业老师对项目进行指导。">
+  <link rel="stylesheet" href="./2. 点亮LED灯_files/jquery-confirm.min.css">
+  <link rel="stylesheet" href="./2. 点亮LED灯_files/darktheme.css">
+  <link rel="stylesheet" href="./2. 点亮LED灯_files/bootstrap.css">
+  <link rel="stylesheet" href="./2. 点亮LED灯_files/vue.css">
+  <link rel="shortcut icon" href="https://doc.itprojects.cn/0000.docsify.assets/img/1649554851-fa57a423e9d5fb2.ico">
+<style type="text/css">.docsify-copy-code-button,.docsify-copy-code-button span{cursor:pointer;transition:all .25s ease}.docsify-copy-code-button{position:absolute;z-index:1;top:0;right:0;overflow:visible;padding:.65em .8em;border:0;border-radius:0;outline:0;font-size:1em;background:grey;background:var(--theme-color,grey);color:#fff;opacity:0}.docsify-copy-code-button span{border-radius:3px;background:inherit;pointer-events:none}.docsify-copy-code-button .error,.docsify-copy-code-button .success{position:absolute;z-index:-100;top:50%;right:0;padding:.5em .65em;font-size:.825em;opacity:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.docsify-copy-code-button.error .error,.docsify-copy-code-button.success .success{right:100%;opacity:1;-webkit-transform:translate(-115%,-50%);transform:translate(-115%,-50%)}.docsify-copy-code-button:focus,pre:hover .docsify-copy-code-button{opacity:1}</style></head>
+<body data-page="/0006.zhishi.esp32/02.doc/02.led.md" class="ready sticky">
+  <section class="cover" style="background: linear-gradient(to left bottom, hsl(148, 100%, 85%) 0%,hsl(99, 100%, 85%) 100%)"><div class="mask"></div><div class="cover-main"><!--cover--></div></section><main><button class="sidebar-toggle" aria-label="Menu"><div class="sidebar-toggle-button"><span></span><span></span><span></span></div></button><aside class="sidebar"><h1 class="app-name"><a class="app-name-link" data-nosearch="" href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html"><img alt="www.itprojects.cn" src="./2. 点亮LED灯_files/ad986e6ed9d6918dc45c0c9c3cad7ccb_10357.png"></a></h1><div class="sidebar-nav"><ul><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/README" title="《Python+ESP32快速上手》 说明">《Python+ESP32快速上手》 说明</a></li><li><a href="https://www.itprojects.cn/hardware" target="_blank" rel="noopener" title="【获取更多课件】">【获取更多课件】</a></li><li><strong>一、基础部分</strong><ul><li><a href="https://www.bilibili.com/video/BV1G34y1E7tE/" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://haohuadianzi.taobao.com/" target="_blank" rel="noopener" title="学习套件购买">学习套件购买</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.diagram" title="电路图">电路图</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.faq" title="常见问题">常见问题</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.autorun" title="ESP32开机自动运行程序">ESP32开机自动运行程序</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/01.dajianhuanjing" title="1. 开发环境搭建">1. 开发环境搭建</a></li><li class="active"><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/02.led" title="2. 点亮LED灯">2. 点亮LED灯</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/03.PWMhuxideng" title="3. PWM呼吸灯">3. PWM呼吸灯</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/04.wifi.sta" title="4. 链接WIFI热点">4. 链接WIFI热点</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/05.network.led" title="5. PC远程控制LED灯">5. PC远程控制LED灯</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/06.shumaguan" title="6. 数码管显示">6. 数码管显示</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/07.4weishumaguan" title="7. 4位数码管显示">7. 4位数码管显示</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/08.8x8dianzhen" title="8. 8x8点阵">8. 8x8点阵</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/09.lcd1602" title="9. i2c控制1602显示屏">9.  i2c控制1602显示屏</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/10.240x240" title="10. SPI控制240x240显示屏">10. SPI控制240x240显示屏</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/11.240x240image" title="11. 240x240显示图片">11. 240x240显示图片</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/12.240x240gif" title="12. 240x240显示gif">12. 240x240显示gif</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/13.240x240qrcode" title="13. 240x240显示二维码">13. 240x240显示二维码</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/14.240x240qrcodequick" title="14. 240x240加速显示二维码">14. 240x240加速显示二维码</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/15.iphoneled" title="15. 项目：手机二维码远程控制LED灯（1/3）">15. 项目：手机二维码远程控制LED灯（1/3） </a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/15.iphoneled2" title="15. 项目：手机二维码远程控制LED灯（2/3）">15. 项目：手机二维码远程控制LED灯（2/3） </a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/15.iphoneled3" title="15. 项目：手机二维码远程控制LED灯（3/3）">15. 项目：手机二维码远程控制LED灯（3/3） </a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/16.ULN2003" title="16. 控制步进电机">16. 控制步进电机 </a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/17.jidianqi" title="17. 控制继电器">17. 控制继电器 </a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/18.qingxie" title="18. 倾斜传感器">18. 倾斜传感器</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/19.zhendong" title="19. 震动报警器">19. 震动报警器</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/20.ds18b20" title="20. 温度传感器">20. 温度传感器</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/21.ps2" title="21. PS2摇杆（ADC）">21. PS2摇杆（ADC）</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/22.ps2" title="22. 项目：PS2摇杆控制LED移动">22. 项目：PS2摇杆控制LED移动</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/23.4x4juzhen" title="23. 4x4矩阵键盘">23. 4x4矩阵键盘</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/24.Buzzer" title="24. 蜂鸣器">24. 蜂鸣器</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/25.ganhuang" title="25. 干簧管">25. 干簧管</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/26.hall" title="26. 霍尔传感器">26. 霍尔传感器</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/27.hongwai" title="27. 红外接收（中断回调函数）">27. 红外接收（中断回调函数）</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/28.guangmin" title="28. 光敏传感器">28. 光敏传感器</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/29.sound" title="29. 声音传感器（中断回调函数）">29. 声音传感器（中断回调函数）</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/30.oled" title="30. OLED屏幕">30. OLED屏幕</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/31.rgb.led" title="31. 彩色RGB灯珠">31. 彩色RGB灯珠</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/32.hcsr501" title="32. 人体红外检测">32. 人体红外检测</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/33.audio" title="33. 播放音乐">33. 播放音乐</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/34.audio.long" title="34. 播放音乐-网络版">34. 播放音乐-网络版</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/35.ethnet" title="35. 有线网络-以太网">35. 有线网络-以太网</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/36.thread" title="36. 上手多线程">36. 上手多线程</a></li></ul></li><li><strong>二、项目：无线遥控小车</strong><ul><li><a href="https://www.bilibili.com/video/BV1qS4y1H7cQ/" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://haohuadianzi.taobao.com/" target="_blank" rel="noopener" title="小车硬件购买">小车硬件购买</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/b00.assemble" title="0. 轮子安装">0. 轮子安装</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/b01.xiaoche" title="1. 控制电机转动">1. 控制电机转动</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/b02.4fangxiang" title="2. 前后左右移动">2. 前后左右移动</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/b03.nrf24l01" title="3. 无线通信NRF24L01">3. 无线通信NRF24L01</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/b04.nrf24l01.simple" title="4. 优化升级NRF24L01控制代码">4. 优化升级NRF24L01控制代码</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/b05.move" title="5. 远程无线控制轮子转动">5. 远程无线控制轮子转动</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/b06.ps2" title="6. PS2远程遥控小车">6. PS2远程遥控小车</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/b07.boot.py" title="7. ESP32开机启动运行程序">7. ESP32开机启动运行程序</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/b08.shield" title="8. 游戏扩展板">8. 游戏扩展板</a></li></ul></li><li><strong>三、物联网</strong><ul><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c00.iot" title="说明">说明</a></li><li><a href="https://www.bilibili.com/video/BV1J94y1Q76d/" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c01.ble" title="1. 蓝牙BLE快速上手">1. 蓝牙BLE快速上手</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c02.servo" title="2. 舵机">2. 舵机</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c03.servo.ble" title="3. 蓝牙控制舵机">3. 蓝牙控制舵机</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c04.ble.20bytes" title="4. 蓝牙20个字节问题">4. 蓝牙20个字节问题</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c05.mqtt" title="5. MQTT快速上手1">5. MQTT快速上手1</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c06.mqtt2" title="6. MQTT快速上手2-电脑控制LED">6. MQTT快速上手2-电脑控制LED</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c07.mqtt3" title="7. MQTT快速上手3-手机控制LED">7. MQTT快速上手3-手机控制LED</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c17.4g.uart" title="8. 4G+串口">8. 4G+串口</a></li></ul></li><li><strong>四、32x16点阵屏</strong><ul><li><a href="https://haohuadianzi.taobao.com/" target="_blank" rel="noopener" title="购买地址">购买地址</a></li><li><a href="https://www.bilibili.com/video/BV1G34y1E7tE?p=51&amp;vd_source=dd339383fe56235f7b1eb7464f67c84d" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c08.31x16led" title="1. 32x16点阵屏">1. 32x16点阵屏</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c09.31x16bigfont" title="2. 32x16显示大数字">2. 32x16显示大数字</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c10.31x16time" title="3. 32x16显示时间">3. 32x16显示时间</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c11.32x16.web" title="4. 32x16显示互联网时间">4. 32x16显示互联网时间</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c12.32x16move" title="5. 32x16数字滚动">5. 32x16数字滚动</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c13.32x16timemove" title="6. 32x16滚动显示互联网时间">6. 32x16滚动显示互联网时间</a></li></ul></li><li><strong>五、墨水屏+3D打印外壳</strong><ul><li><a href="https://haohuadianzi.taobao.com/" target="_blank" rel="noopener" title="购买地址">购买地址</a></li><li><a href="https://www.bilibili.com/video/BV1cV4y1j7hU/" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c14.epaper1" title="1. 墨水屏-显示图片">1. 墨水屏-显示图片</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c15.epaper2" title="2. 墨水屏-调整文字显示方向">2. 墨水屏-调整文字显示方向</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c16.epaper3" title="3. 墨水屏-wifi、日历、图片">3. 墨水屏-wifi、日历、图片</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/c16.2.stl" title="4. 3D打印STL文件">4. 3D打印STL文件</a></li></ul></li><li><strong>六、机械臂（1代）</strong><ul><li><a href="https://www.bilibili.com/video/BV1aT411c7rc/?vd_source=dd339383fe56235f7b1eb7464f67c84d" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://haohuadianzi.taobao.com/" target="_blank" rel="noopener" title="购买地址">购买地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d01.stepper.motor" title="1. 主要硬件">1. 主要硬件</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d02.mpython" title="2. 烧录MicroPython">2. 烧录MicroPython</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d03.control4988" title="3. 4988控制步进电机">3. 4988控制步进电机</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d04.speed" title="4. 控制转速">4. 控制转速</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d05.angle" title="5. 旋转角度">5. 旋转角度</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d06.3motor" title="6. 机械臂3轴转动">6. 机械臂3轴转动</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d07.pyqt" title="7. PyQt桌面程序控制3轴">7. PyQt桌面程序控制3轴</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d08.angle" title="8. 角度与脉冲">8. 角度与脉冲</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d09.16" title="9. 电机步进模式">9. 电机步进模式</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d10.speed" title="10. 调速">10. 调速</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d11.shuiping" title="11. 逆向运动学1-水平">11. 逆向运动学1-水平</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d12.low" title="12. 逆向运动学2-低">12. 逆向运动学2-低</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d13.high" title="13. 逆向运动学3-高">13. 逆向运动学3-高</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d18.slider" title="14. 机械臂+滑轨=4轴机械臂">14. 机械臂+滑轨=4轴机械臂</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d14.clip" title="15. 夹手">15. 夹手</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d15.gripper" title="16. 上位机控制夹手">16. 上位机控制夹手</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/d16.xipan" title="17. 吸盘">17. 吸盘</a></li></ul></li><li><strong>七、ESP32-CAM摄像头</strong><ul><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/e00.buy" title="购买地址">购买地址</a></li><li><a href="https://www.bilibili.com/video/BV1G34y1E7tE?p=78&amp;vd_source=dd339383fe56235f7b1eb7464f67c84d" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/e01.cam" title="1. 搭建环境、拍摄第1张照片">1. 搭建环境、拍摄第1张照片</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/e02.debuginit" title="2. 修复init失败问题">2. 修复init失败问题</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/e03.showvideo" title="3. 实时显示摄像头画面">3. 实时显示摄像头画面</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/e04.stl" title="4. 3D打印外壳">4. 3D打印外壳</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/e05.save.video" title="5. 保存视频">5. 保存视频</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/e06.pyside.save" title="6. PC端界面更新">6. PC端界面更新</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/e07.sd" title="7. SD存储卡">7. SD存储卡</a></li></ul></li><li><strong>八、滑轨（1代）</strong><ul><li><a href="https://www.bilibili.com/video/BV1vt4y1j7zR/" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://haohuadianzi.taobao.com/" target="_blank" rel="noopener" title="购买地址">购买地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/f01.slider" title="1. 滑轨">1. 滑轨</a></li></ul></li><li><strong>九、传送带（1代）</strong><ul><li><a href="https://www.bilibili.com/video/BV1rG411G7xM/" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/g01.tb6600" title="1. 步进电机驱动板TB6600">1. 步进电机驱动板TB6600</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/g02.belt" title="2. 传送带">2. 传送带</a></li></ul></li><li><strong>十、代码加密</strong><ul><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/h.01.encrypt" title="mpy-cross加密">mpy-cross加密</a></li></ul></li><li><strong>十一、LVGL图形化编程</strong><ul><li><a href="https://www.bilibili.com/video/BV1UB4y1j7BS/?vd_source=dd339383fe56235f7b1eb7464f67c84d" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://haohuadianzi.taobao.com/" target="_blank" rel="noopener" title="购买地址">购买地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i00.readme" title="说明">说明</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i00.lvgl.micropython.bin" title="0. 准备：软件+硬件">0. 准备：软件+硬件</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i01.lvmicropython" title="1. lv_micropython运行效果">1. lv_micropython运行效果</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i02.pcb" title="2. PCB连接板">2. PCB连接板</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i03.stl" title="3. 3D打印底壳">3. 3D打印底壳</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i04.first" title="4. 第1个按钮程序">4. 第1个按钮程序</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i05.chinese.font" title="5. 显示中文-1-工具">5. 显示中文-1-工具</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i06.chinese.font.2" title="6. 显示中文-2-制作">6. 显示中文-2-制作</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i07.chinese.font.3" title="7. 显示中文-3-代码">7. 显示中文-3-代码</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i08.slider" title="8. 滑杆slider">8. 滑杆slider</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i09.img" title="9. 显示图片">9. 显示图片</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i10.line" title="10. 画线">10. 画线</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i11.arc" title="11. 圆弧">11. 圆弧</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i12.bar" title="12. 进度条">12. 进度条</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i13.temp" title="13. 进度条案例：温度">13. 进度条案例：温度</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i14.meter" title="14. 仪表盘">14. 仪表盘</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i15.timer" title="15. 定制器">15. 定制器</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i16.realtime.temp" title="16. 实时温度">16. 实时温度</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i17.matrix" title="17. 数字键盘">17. 数字键盘</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/i18.lock" title="18. 密码锁">18. 密码锁</a></li></ul></li><li><strong>十二、吸盘</strong><ul><li><a href="https://www.bilibili.com/video/BV15K411D7j6/?vd_source=dd339383fe56235f7b1eb7464f67c84d" target="_blank" rel="noopener" title="视频地址">视频地址</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/00.qqqun" title="交流群">交流群</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/j01.test" title="1. 简单测试">1. 简单测试</a></li><li><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/j02.stl" title="2. 3D打印文件">2. 3D打印文件</a></li></ul></li></ul></div></aside><section class="content"><article class="markdown-section" id="main"> <div id="dark_mode">
+             <input class="container_toggle" type="checkbox" id="switch" name="mode">
+             <label for="switch">Toggle</label>
+           </div><h1 id="二、点亮led灯"><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/02.led?id=%e4%ba%8c%e3%80%81%e7%82%b9%e4%ba%aeled%e7%81%af" data-id="二、点亮led灯" class="anchor"><span>二、点亮LED灯</span></a></h1><h2 id="_1-原理"><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/02.led?id=_1-%e5%8e%9f%e7%90%86" data-id="_1-原理" class="anchor"><span>1. 原理</span></a></h2><p>想要让一个LED灯亮，那么就要给其供电，使得有电流通过</p><img src="./2. 点亮LED灯_files/1652926074519.png" alt="1652926074519" style="zoom:50%;">
+
+<p>与小时候玩的一节7号电池和普通小灯泡是一个道理</p><img src="./2. 点亮LED灯_files/led.png" style="zoom:50%;">
+
+
+
+<h2 id="_2-查看esp32开发板电路图"><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/02.led?id=_2-%e6%9f%a5%e7%9c%8besp32%e5%bc%80%e5%8f%91%e6%9d%bf%e7%94%b5%e8%b7%af%e5%9b%be" data-id="_2-查看esp32开发板电路图" class="anchor"><span>2. 查看ESP32开发板电路图</span></a></h2><p>通过查看电路图，来确定开发板上的LED等的与MCU的引脚链接方式</p><p><img src="./2. 点亮LED灯_files/1652926241432.png" data-origin="assets/1652926241432.png" alt="1652926241432"></p><p>查看上图我们知道，GPIO2这个引脚链接到了发光二极管（LED）的正极</p><p>所以想要让这个LED灯亮，就通过程序控制GPIO2的输出为高电平（高电压）就行了</p><p>电路图下载地址：</p><ul><li><p><a href="https://doc.itprojects.cn/0006.zhishi.esp32/01.download/esp32_Schematic%20Prints.pdf" target="_blank" rel="noopener">https://doc.itprojects.cn/0006.zhishi.esp32/01.download/esp32_Schematic%20Prints.pdf</a></p></li><li><p><a href="https://doc.itprojects.cn/0006.zhishi.esp32/01.download/esp_wroom_32_datasheet_cn.pdf" target="_blank" rel="noopener">https://doc.itprojects.cn/0006.zhishi.esp32/01.download/esp_wroom_32_datasheet_cn.pdf</a></p></li></ul><h2 id="_3-点亮led灯"><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/02.led?id=_3-%e7%82%b9%e4%ba%aeled%e7%81%af" data-id="_3-点亮led灯" class="anchor"><span>3. 点亮LED灯</span></a></h2><p>浏览MicroPython官方的文档</p><p><a href="http://docs.micropython.org/en/latest/esp32/quickref.html" target="_blank" rel="noopener">http://docs.micropython.org/en/latest/esp32/quickref.html</a></p><p><img src="./2. 点亮LED灯_files/1652926477142.png" data-origin="assets/1652926477142.png" alt="1652926477142"></p><p>通过上面的文档我们知道，想要让一个引脚输出高电平，只需要找到对应的GPIO然后通过<code>on()</code>或者<code>value(1)</code>操作就可以，同理如果想要输出低电平让LED灯灭，只需要调用<code>off()</code>或者<code>value(0)</code>就行</p><p>下面我们来试试看</p><pre v-pre="" data-lang="python"><code class="lang-python"><span class="token keyword">from</span> machine <span class="token keyword">import</span> Pin
+
+pin2 <span class="token operator">=</span> Pin<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> Pin<span class="token punctuation">.</span>OUT<span class="token punctuation">)</span>
+pin2<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code><button class="docsify-copy-code-button"><span class="label">复制</span><span class="error">Error</span><span class="success">复制成功...</span></button></pre><p>通过Thonny编写上述代码，然后运行，此时会看到开发板上的蓝色LED灯亮了</p><h3 id="注意："><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/02.led?id=%e6%b3%a8%e6%84%8f%ef%bc%9a" data-id="注意：" class="anchor"><span>注意：</span></a></h3><ul><li><code>Pin(2, Pin.OUT)</code>中的2对应的是GPIO2，如果你的电路板上的LED灯不是GPIO2那么通过查看电路原理图是哪个GPIO就写哪个数字就行</li></ul><h2 id="_4-闪烁的led灯"><a href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/02.led?id=_4-%e9%97%aa%e7%83%81%e7%9a%84led%e7%81%af" data-id="_4-闪烁的led灯" class="anchor"><span>4. 闪烁的LED灯</span></a></h2><p>原理：调用<code>value(1)</code>然后延时一小会，再调用<code>value(0)</code>延时一小会，然后重复上述操作</p><p>代码如下：</p><pre v-pre="" data-lang="python"><code class="lang-python"><span class="token keyword">import</span> machine
+<span class="token keyword">import</span> time
+
+
+pin2 <span class="token operator">=</span> machine<span class="token punctuation">.</span>Pin<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> machine<span class="token punctuation">.</span>Pin<span class="token punctuation">.</span>OUT<span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    pin2<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    pin2<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code><button class="docsify-copy-code-button"><span class="label">复制</span><span class="error">Error</span><span class="success">复制成功...</span></button></pre><p>运行效果如下：</p><p><img src="./2. 点亮LED灯_files/shanshuoled.gif" data-origin="./assets/shanshuoled.gif" alt=""></p><hr><footer><span>Copyright © www.itprojects.cn，合作以及项目交流请联系微信dong4716138</span></footer></article></section></main>
+  <script src="./2. 点亮LED灯_files/hm.js"></script><script>
+    //获取#号值
+    function GetRequest() {
+      var str = location.href
+      var num = str.indexOf("#");
+      str = str.substr(num + 1);
+      return str;
+    }
+
+    window.$docsify = {
+      name: 'www.itprojects.cn',//侧边栏标题
+      logo: '//doc.itprojects.cn/0000.docsify.assets/img/ad986e6ed9d6918dc45c0c9c3cad7ccb_10357.png',
+      auto2top: true,
+      coverpage: true,
+      loadNavbar: false,//顶部导航
+      loadSidebar: true, // 加载自定义侧边栏
+      maxLevel: 1, // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
+      subMaxLevel: 1, // 生成目录的最大层级
+      mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      plugins: [
+        function(hook) {
+          var footer = [
+            '<hr/>',
+            '<footer>',
+            '<span>Copyright © www.itprojects.cn，合作以及项目交流请联系微信dong4716138</span>',
+            '</footer>'
+          ].join('');
+
+          hook.beforeEach(function(content, next) {
+            // 每次开始解析 Markdown 内容时调用
+
+            // 免费课件
+            if(content.substr(0, 7) != "encrypt"){
+              next(content)
+              return
+            }
+
+            // vip课件
+            // 提取课件的hash_id，就是文件夹的名字 https:/0000.docsify.test.06/index.html#/md/01.01
+            var project_url = window.location.href.split("#")[0]  // https:/0000.docsify.test.06/index.html
+            var project_url2 = project_url.substring(0, project_url.lastIndexOf("/"))  // https:/0000.docsify.test.06
+            var hash_id = project_url2.slice(project_url2.lastIndexOf("/")+1)  // 0000.docsify.test.06
+
+            var formData = new FormData();
+            //添加数据
+            formData.append("action", "get_book_hash");
+            formData.append("book_id", hash_id);
+
+            $.ajax({
+              url: "https://www.itprojects.cn/wp-admin/admin-ajax.php",
+              type: "POST",
+              data: formData,
+              contentType: false,
+              processData: false,
+              xhrFields: {
+                  withCredentials: true
+              },
+              crossDomain: true,
+              success: function (data) {
+
+                if (data.vip == "vip" || data.vip == "boosvip") {  // VIP会员
+                  next("加载中...")
+                  var file_id = GetRequest(window.location.href)
+                  var request_url = "." + file_id + "." + data.book_hash + ".md"
+                  $.ajax({
+                    url: request_url,
+                    success: function (data) {
+                      next(data)
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                      $.alert('系统异常，请稍后再试，如有疑问请联系王老师微信dong4716138')
+                      next("未经授权暂时无法阅读此文档")
+                      localStorage.removeItem(project_id);
+                    }
+                  })
+                } else {
+                  content = "请登录或购买VIP"
+                  $.confirm({
+                    title: "VIP专享",
+                    content: content,
+                    buttons: {
+                      "确定": {
+                        btnClass: 'btn-green',
+                        action: function () {
+                          window.open("//www.itprojects.cn/user/vip")
+                          $.confirm({
+                            title: "",
+                            content: "已购买VIP ?",
+                            buttons: {
+                              "确定": {
+                                btnClass: 'btn-green',
+                                action: function () {
+                                  location.reload()
+                                }
+                              },
+                              "取消": {
+                                action: function () {
+                                  next("未经授权暂时无法阅读...本文章是VIP专享，请您登录或购买VIP后再浏览")
+                                }
+                              }
+                            }
+                          });
+                        }
+                      },
+                      "取消": {
+                        action: function () {
+                          next("未经授权暂时无法阅读...本文章是VIP专享，请您登录或购买VIP后再浏览")
+                        }
+                      }
+                    }
+                  });
+                }
+              }
+            });
+          });
+
+          hook.afterEach(function(html, next) {
+            next(html + footer)
+            return html + footer;
+          });
+        }
+      ]
+    } 
+  </script>
+  <!-- 黑色主题 -->
+  <script src="./2. 点亮LED灯_files/darktheme.js"></script>
+  <!-- 加载docsify js资源 -->
+  <script src="./2. 点亮LED灯_files/jquery-3.6.0.min.js"></script>
+  <script src="./2. 点亮LED灯_files/jquery-confirm.min.js"></script>
+  <script src="./2. 点亮LED灯_files/md5.js"></script>
+  <script src="./2. 点亮LED灯_files/plugin.css"></script>
+  <script src="./2. 点亮LED灯_files/docsify.js"></script>
+  <!--Java代码高亮-->
+  <script src="./2. 点亮LED灯_files/prism-java.js"></script>
+  <!--python代码高亮-->
+  <script src="./2. 点亮LED灯_files/prism-python.js"></script>
+  <!--sql代码高亮-->
+  <script src="./2. 点亮LED灯_files/prism-sql.js"></script>
+  <!--shell代码高亮-->
+  <script src="./2. 点亮LED灯_files/prism-bash.js"></script>
+  <!--c代码高亮-->
+  <script src="./2. 点亮LED灯_files/prism-c.js"></script>
+  <!--cpp代码高亮-->
+  <script src="./2. 点亮LED灯_files/prism-cpp.js"></script>
+  <!-- 复制到剪贴板 -->
+  <script src="./2. 点亮LED灯_files/docsify-copy-code.js"></script>
+  <!-- 图片缩放插件 -->
+  <!-- <script src="/0000.docsify.assets/js/zoom-image.min.js"></script> -->
+  <!-- 回到顶部 -->
+  <script src="./2. 点亮LED灯_files/top.goup.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $.goup({
+        trigger: 100,
+        bottomOffset: 32,
+        locationOffset: 32,
+        // title: 'TOP',
+        titleAsText: true
+      });
+    });
+  </script>
+  <!-- 百度统计 -->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?12d0a9d48890160be2aeca33f7eb2fdb";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<div class="goup-container" title="" style="position: fixed; width: 40px; height: 40px; background: rgb(66, 185, 131); cursor: pointer; z-index: 1; bottom: 32px; right: 32px; border-radius: 10px; display: none;"><div class="goup-arrow" style="width: 0px; height: 0px; margin: 0px auto; padding-top: 13px; border-style: solid; border-width: 0px 10px 10px; border-color: transparent transparent rgb(255, 255, 255);"></div></div><div class="progress" style="opacity: 0; width: 0%;"></div></body></html>
