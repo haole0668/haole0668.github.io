@@ -1,0 +1,123 @@
+.itproject {
+    /* margin-bottom: 40px; */
+    display: block;
+    position: fixed;
+    left: 100%;
+    margin-left: -418px;
+    top: 100%;
+    margin-top: -225px;
+    z-index: 100;
+    width: 400px;
+    height: 225px;
+}
+
+
+.markdown-section {
+    overflow: visible !important;
+}
+
+.itproject-vip {
+    color: red;
+    position: absolute;
+    right: 60px;
+    top: 9px;
+}
+
+.itproject-play {
+    cursor:pointer;
+}
+
+.videolist { position:relative; float:left; width:500px; height:300px; margin-right:50px; margin-top:15px; margin-bottom:30px; }
+.videolist:hover{ cursor: pointer; }
+.videoed { display:none; width:50px; height:50px; position: absolute; left:45%; top:45%; z-index:99; border-radius:100%; }
+.videos{ 
+    display:none; 
+    /*border: 1px solid #080808; */
+    position:fixed; 
+    left:100%; top:100%; 
+    margin-left:-418px; 
+    margin-top:-225px; 
+    z-index:100; 
+    width:400px; 
+    height:225px; 
+}
+.vclose { position:absolute;right:1%; top:1%; border-radius:100%; cursor: pointer; }
+
+#video {
+    width: 400px;
+    height: 225px;
+}
+
+.mark-min{
+    display: inline-block;
+    outline: 2px solid red;
+    display: inline-block;
+    text-decoration:line-through #a95555; 
+    background-color: transparent;
+    color: #f8f8f2;
+}
+
+.mark-plus{
+    padding: 0px;
+    outline: 2px solid #0cbb08;
+    /* outline-offset: 0.4em; */
+    /* margin: 0.4em 0; */
+    /*background: #ff0;*/
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+}
+
+.mark-plus:hover #tips-content{
+    display: block;
+}
+
+.tips-content{
+    top: -19px;
+    background: red;
+    position: absolute;
+    border-radius: 1px;
+}
+
+.icon_audio_default{
+    display: inline-block;
+    /*top: 15px;*/
+    margin-left: 12px;
+    width: 54px;
+    height: 25px;
+    background: transparent url(https://cdn.itprojects.cn/V4/iconloop.png) no-repeat 0 0;
+    background-position: -36px center;
+    background-size: 54px 25px;
+    position: absolute;
+}
+
+.icon_audio_playing{
+    display: inline-block;
+    /*top: 15px;*/
+    margin-left: 12px;
+    background: transparent url(https://cdn.itprojects.cn/V4/iconloop.png) no-repeat 0 0;
+    width: 18px;
+    height: 25px;
+    background-size: 54px 25px;
+    position: absolute;
+    -webkit-background-size: 54px 25px;
+    -webkit-animation: audio_playing 1s infinite;
+}
+
+@-webkit-keyframes audio_playing {
+    30% {
+        background-position: 0px center;
+    }
+    30.1% {
+        background-position: -18px center;
+    }
+    61% {
+        background-position: -18px center;
+    }
+    61.1% {
+        background-position: -36px center;
+    }
+    100% {
+        background-position: -36px center;
+    }
+}
